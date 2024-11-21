@@ -21,7 +21,7 @@ let speed = 100;
 const textElements = document.querySelector(".typewriter-text");
 
 let textindex = 0;
-let characterindex = 0; // Correction: il manquait un espace après 'let'
+let characterindex = 0; 
 
 function typewriter() {
     if (characterindex < texts[textindex].length) {
@@ -29,18 +29,18 @@ function typewriter() {
         characterindex++;
         setTimeout(typewriter, speed);
     } else {
-        setTimeout(eraseText, 1000); // Attendre avant d'effacer le texte
+        setTimeout(eraseText, 1000); 
     }
 }
 
 function eraseText() {
     if (textElements.innerHTML.length > 0) {
-        textElements.innerHTML = textElements.innerHTML.slice(0, -1); // Supprime le dernier caractère
+        textElements.innerHTML = textElements.innerHTML.slice(0, -1); 
         setTimeout(eraseText, 50);
     } else {
-        textindex = (textindex + 1) % texts.length; // Passer au texte suivant en boucle
+        textindex = (textindex + 1) % texts.length; 
         characterindex = 0;
-        setTimeout(typewriter, 500); // Redémarre l'effet d'écriture
+        setTimeout(typewriter, 500); 
     }
 }
 
